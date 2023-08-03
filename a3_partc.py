@@ -33,3 +33,4 @@ def generate_maze(number_of_rows, number_of_columns):
     remaining_walls = [wall for wall in walls if wall not in walls_to_remove]
 
     return remaining_walls
+ 
