@@ -45,5 +45,5 @@ class Graph:
             return None
         conn_verts = []
         for edge in self.list_adj[x]:
-            conn_verts.append((edge[0], edge[1]))
+            conn_verts.append((edge[0], edge[1])) #add next vertex and weight to conn_Verts
         return conn_verts
