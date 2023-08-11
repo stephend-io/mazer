@@ -3,7 +3,7 @@ from a2d import Graph
 from a3_partb import minimum_spanning_tree
 
 """
-    Generates a maze including with a randomized path 
+    Generates a maze with a randomized path 
 
     Args:
         number_of_rows (int): Number of rows in the maze
