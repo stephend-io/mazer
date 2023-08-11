@@ -1,50 +1,82 @@
 from a3_maze import Maze
 
+def find_path(maze: Maze, from_cell: int, to_cell: int) -> list:
+    """
+    Finds a path from the starting cell to the goal cell within the maze.
 
-def find_path(the_maze, from_cell, to_cell):
-    if (from_cell == to_cell):
-        return [from_cell]
+    Args:
+        maze (Maze): An instance of the Maze class representing the maze.
+        from_cell (int): The cell number representing the starting cell.
+        to_cell (int): The cell number representing the goal cell.
 
-    the_maze.mark_cell(from_cell)
+    Returns:
+        list: A list of cell numbers representing the path from the starting cell to the goal cell.
+              An empty list if no path is found.
+    """
+    result = helper(maze, from_cell, to_cell, [])
+    if not result:
+        return []
+    return result
 
-    def mark(neighbour):
-        if the_maze.get_is_marked(neighbour) == False:
-            return True
 
-    def equal_cell(neighbour):
-        if (neighbour == to_cell):
-            return [from_cell, neighbour]
+def helper(maze: Maze, from_cell: int, to_cell: int, path: list):
+    """
+    Recursive helper function to find the path within the maze.
 
-    to_right = the_maze.get_right(from_cell)
-    if (to_right != -1 and mark(to_right)):
-        equal_cell(to_right)
-        path = find_path(the_maze, to_right, to_cell)
-        if path:
-            path = [from_cell] + path
-            return path
+    Args:
+        maze (Maze): An instance of the Maze class representing the maze.
+        from_cell (int): The cell number representing the current cell.
+        to_cell (int): The cell number representing the goal cell.
+        path (list): A list representing the current path.
 
-    to_left = the_maze.get_left(from_cell)
-    if (to_left != -1 and mark(to_left)):
-        equal_cell(to_left)
-        path = find_path(the_maze, to_left, to_cell)
-        if path:
-            path = [from_cell] + path
-            return path
+    Returns:
+        Union[list, bool]: A list of cell numbers representing the path from the starting cell to the goal cell.
+                           False if no path is found.
+    """
+    if from_cell == to_cell:
+        # Found the goal cell, returning the path
+        path.append(to_cell)
+        return path
 
-    to_up = the_maze.get_up(from_cell)
-    if (to_up != -1 and mark(to_up)):
-        equal_cell(to_up)
-        path = find_path(the_maze, to_up, to_cell)
-        if path:
-            path = [from_cell] + path
-            return path
+    path_copy = path[:]
 
-    to_down = the_maze.get_down(from_cell)
-    if (to_down != -1 and mark(to_down)):
-        equal_cell(to_down)
-        path = find_path(the_maze, to_down, to_cell)
-        if path:
-            path = [from_cell] + path
-            return path
+    right = maze.get_right(from_cell)
+    if (right != -1) and not maze.get_is_marked(right):
+        maze.mark_cell(from_cell)
+        path_copy.append(from_cell)
+        right = helper(maze, right, to_cell, path_copy)
+        if right:
+            return right
 
-    return []
+    path_copy = path[:]
+
+    down = maze.get_down(from_cell)
+    if (down != -1) and not maze.get_is_marked(down):
+        maze.mark_cell(from_cell)
+        path_copy.append(from_cell)
+        down = helper(maze, down, to_cell, path_copy)
+        if down:
+            return down
+
+    path_copy = path[:]
+
+    left = maze.get_left(from_cell)
+    if (left != -1) and not maze.get_is_marked(left):
+        maze.mark_cell(from_cell)
+        path_copy.append(from_cell)
+        left = helper(maze, left, to_cell, path_copy)
+        if left:
+            return left
+
+    path_copy = path[:]
+
+    up = maze.get_up(from_cell)
+    if (up != -1) and not maze.get_is_marked(up):
+        maze.mark_cell(from_cell)
+        path_copy.append(from_cell)
+        up = helper(maze, up, to_cell, path_copy)
+        if up:
+            return up
+
+    # None of the paths at the cell lead to the goal cell
+    return False

@@ -1,0 +1,14 @@
+##[pylyzer] failed a2d.py 1691681534 1684
+.Graph: ClassType
+.Graph.count_vertices: Never
+.Graph.list_adj: Never
+.Graph.count_edges: Never
+.Graph.__call__: (count_vertices: Obj, count_edges: Obj, list_adj: Obj) -> .Graph
+.Graph.add_vertex: |Type_6 <: Structural({.list_adj = Type_39}), Type_38: Type, Type_39 <: Structural({.append = (self: Obj, Type_40) -> Type_41}), Type_40 :> Array!(Type_38, 0), Type_41: Type|(self: Type_6) -> Type_41
+.Graph.add_edge: |R: Type, R :> {1, }, Type_63 <: Structural({.__add__ = (self: Never, R) -> O}), O: Type, R :> {0, }, Type_9 <: Structural({.count_edges = Type_63})|(self: Type_9, idx_from: Structural({.__lt__ = (self: Never, R) -> Bool; .__ge__ = (self: Never, R) -> Bool}), idx_to: Obj, weight := Obj) -> {False, True, }
+.Graph.num_edges: |Type_15 <: Structural({.count_edges = Type_65}), Type_65: Type|(self: Type_15) -> Type_65
+.Graph.num_verts: |Type_67: Type, Type_18 <: Structural({.count_vertices = Type_67})|(self: Type_18) -> Type_67
+.Graph.has_edge: |E: Type, Type_74 <: Structural({.__getitem__ = (self: Obj, Type_22) -> Type_76}), Type_22 <: Structural({.__lt__ = (self: Never, R) -> Bool; .__ge__ = (self: Never, R) -> Bool}), T <: Structural({.__getitem__ = (self: Obj, Type_78) -> E}), Type_21 <: Structural({.list_adj = Type_74}), Type_76 <: Iterable(T), R :> {0, }, R: Type, Type_78 :> {0, }|(self: Type_21, idx_from: Type_22, idc_to: E) -> {False, True, }
+.Graph.edge_weight: |Type_26 <: Structural({.list_adj = Type_88}), Type_94 :> {1, }, T <: Structural({.__getitem__ = (self: Obj, Type_94) -> Type_95}), Type_88 <: Structural({.__getitem__ = (self: Obj, Type_27) -> Type_90}), Type_27 <: Structural({.__lt__ = (self: Never, R) -> Bool; .__ge__ = (self: Never, R) -> Bool}), R :> {0, }, Type_90 <: Iterable(T), R: Type, Type_95 :> {None, }|(self: Type_26, idx_from: Type_27, idx_to: Obj) -> Type_95
+.Graph.get_connected: |Type_31 <: Structural({.list_adj = Type_107}), T <: Structural({.__getitem__ = (self: Obj, Type_113) -> Type_114}), R :> {0, }, Type_109 <: Iterable(T), Type_113 :> {1, }, Type_114: Type, Type_32 <: Structural({.__lt__ = (self: Never, R) -> Bool; .__ge__ = (self: Never, R) -> Bool}), Type_107 <: Structural({.__getitem__ = (self: Obj, Type_32) -> Type_109}), R: Type|(self: Type_31, x: Type_32) -> {None, }
+

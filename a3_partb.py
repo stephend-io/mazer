@@ -1,31 +1,22 @@
 from a3_parta import MinHeap
 
+def minimum_spanning_tree(graph):    #prim
+    mst = []  # List to store minimum spanning tree edges
+    visit = set()  # Set of visit vertices
+    
+    # Create a MinHeap to store edges
+    edge_heap = MinHeap([(0, None, 0)])    #edge_heap becomes a minHeap array and heapify down ||weight from, to
 
-def minimum_spanning_tree(graph):
-    visited_nodes = set()
-    heap = MinHeap()
+    while not edge_heap.is_empty():
+        weight, curr_ver, next_vert = edge_heap.extract_min()    #extract min value from heap and remove it
 
-    start_node = 0
-    visited_nodes.add(start_node)
-    for neighbor, weight in graph.get_connected(start_node):
-        heap.insert((weight, start_node, neighbor))
+        if next_vert not in visit:                       #if not visit
+            visit.add(next_vert)                         #turn into visit
+            if curr_ver is not None:                        
+                mst.append((curr_ver, next_vert))       #save MST excluding starter
 
-    mst = []
-    while heap and len(visited_nodes) < graph.num_verts():
-        weight, node1, node2 = heap.extract_min()
-
-        if node1 not in visited_nodes or node2 not in visited_nodes:
-            mst.append((node1, node2))
-
-            if node1 in visited_nodes:
-                visited_nodes.add(node2)
-                current_node = node2
-            else:
-                visited_nodes.add(node1)
-                current_node = node1
-
-            for neighbor, weight in graph.get_connected(current_node):
-                if neighbor not in visited_nodes:
-                    heap.insert((weight, current_node, neighbor))
+            for neighbor, weight in graph.get_connected(next_vert): #check neighbours and value if visted
+                if neighbor not in visit:
+                    edge_heap.insert((weight, next_vert, neighbor))
 
     return mst

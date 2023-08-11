@@ -1,0 +1,13 @@
+##[pylyzer] failed a3_parta.py 1691681534 1524
+.MinHeap: ClassType
+.MinHeap.heap: Never
+.MinHeap.__call__: (heap: Obj) -> .MinHeap
+.MinHeap.build_heap: |Type_4 <: Structural({._heapify_down = (self: Obj, Never) -> Type_34}), Type_34 <: NoneType|(self: Type_4) -> NoneType
+.MinHeap.insert: |Type_42: Type, Type_8: Type, Type_7 <: Structural({._heapify_up = (self: Obj, O) -> Type_42}), O :> Int|(self: Type_7, element: Type_8) -> Type_42
+.MinHeap.get_min: |Type_48 :> {0, }, Type_49 :> {None, }, Type_47 <: Structural({.__getitem__ = (self: Obj, Type_48) -> Type_49}), Type_11 <: Structural({.heap = Type_47})|(self: Type_11) -> Type_49
+.MinHeap.extract_min: |Type_68 :> {0, }, Type_14 <: Structural({._heapify_down = (self: Obj, Type_68) -> Type_69}), Type_69: Type|(self: Type_14) -> {None, }
+.MinHeap.is_empty: |Type_17 <: Structural({.heap = Type_71}), Type_71 <: Structural({.__len__ = (self: Never) -> Nat})|(self: Type_17) -> Bool
+.MinHeap.__len__: |Type_73 <: Structural({.__len__ = (self: Never) -> Nat}), Type_20 <: Structural({.heap = Type_73})|(self: Type_20) -> Nat
+.MinHeap._heapify_up: |Type_90 <: Structural({.__getitem__ = (self: Obj, Type_91) -> Type_92}), O <: Structural({.__floordiv__ = (self: Never, R) -> O}), R :> {2, }, O: Type, R :> {1, }, Type_91: Type, O <: Structural({.__sub__ = (self: Never, R) -> O}), R :> {1, }, R :> {2, }, R :> {0, }, Type_92: Type, Type_23 <: Structural({.heap = Type_90}), O <: Structural({.__floordiv__ = (self: Never, R) -> O})|(self: Type_23, i: Structural({.__sub__ = (self: Never, R) -> O; .__gt__ = (self: Never, R) -> Bool})) -> NoneType
+.MinHeap._heapify_down: |U :> NoneType, E <: Nat, T: Type, Type_27 <: Structural({._heapify_down = (self: Obj, Type_142) -> T}), Type_142: Type|(self: Type_27, i: E) -> T or U
+
