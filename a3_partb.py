@@ -1,11 +1,5 @@
 from a3_parta import MinHeap
 
-def minimum_spanning_tree(graph):    #prim
-    mst = []  # List to store minimum spanning tree edges
-    visit = set()  # Set of visit vertices
-    
-    # Create a MinHeap to store edges
-    edge_heap = MinHeap([(0, None, 0)])    #edge_heap becomes a minHeap array and heapify down ||weight from, to
 
 def minimum_spanning_tree(graph):    #prim
     mst = []  # List to store minimum spanning tree edges
@@ -27,5 +21,3 @@ def minimum_spanning_tree(graph):    #prim
                     edge_heap.insert((weight, next_vert, neighbor))
 
     return mst
-
-
