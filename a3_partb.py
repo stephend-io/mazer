@@ -7,6 +7,13 @@ def minimum_spanning_tree(graph):    #prim
     # Create a MinHeap to store edges
     edge_heap = MinHeap([(0, None, 0)])    #edge_heap becomes a minHeap array and heapify down ||weight from, to
 
+def minimum_spanning_tree(graph):    #prim
+    mst = []  # List to store minimum spanning tree edges
+    visit = set()  # Set of visit vertices
+    
+    # Create a MinHeap to store edges
+    edge_heap = MinHeap([(0, None, 0)])    #edge_heap becomes a minHeap array and heapify down ||weight from, to
+
     while not edge_heap.is_empty():
         weight, curr_ver, next_vert = edge_heap.extract_min()    #extract min value from heap and remove it
 
@@ -20,3 +27,5 @@ def minimum_spanning_tree(graph):    #prim
                     edge_heap.insert((weight, next_vert, neighbor))
 
     return mst
+
+
