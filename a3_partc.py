@@ -45,5 +45,4 @@ def generate_maze(number_of_rows: int, number_of_columns: int):
         if wall not in removed_walls:
             final_maze.append(wall)
 
-    print(final_maze)
     return final_maze
